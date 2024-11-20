@@ -147,22 +147,13 @@
             body: new FormData(form)
         })
         .then(response => {
-            return response.json(); 
-        })
-        .then(data => {
-            
-            if (data && data.ok) {
+            if (response.ok) {
                 responseMessage.innerHTML = "<p style='color: green;'>Lights, camera, your message has been sent successfully!</p>";
                 form.reset(); 
             } else {
-                
                 responseMessage.innerHTML = "<p style='color: red;'>Avast! There was an issue sending your message. Please try again later.</p>";
-            }
-        })
-        .catch(error => {
-            
-            responseMessage.innerHTML = "<p style='color: red;'>Avast! There was an error sending your message. Please try again later.</p>";
-        });
+            }  
+        }));
     });
 </script>
 
